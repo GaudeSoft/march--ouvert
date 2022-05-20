@@ -115,35 +115,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <ul class="product-list grid-products equal-container">
-                                @foreach($produits as $produit)
-                                    <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-                                        <div class="product product-style-3 equal-elem ">
-                                            <div class="product-thumnail">
-                                                <a href="produit.detail" title="{{$produit->nom}}">
-                                                <img src="{{asset ('assets/uploads/produit') }}/{{$produit->image}}" alt="{{$produit->nom}}" width="50%">                                </a>
-                                            </div>
-                                            <div class="product-info">
-                                                <a href="#" class="product-name"><span>{{$produit->nom}}</span></a>
-                                                <div class="wrap-price"><span class="product-price">{{$produit->prix}}F CFA</span></div>
-                                                <a href="#" class="btn add-to-cart">Ajouter au panier</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container card-group">
+                @foreach($produits as $produit)
+                    <div class="card" style="border: 3px solid #139630; margin-right:5%;width: 100% ">
+                        <img src="{{asset ('assets/uploads/produit') }}/{{$produit->image}}" width="5%" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#" style="text-decoration:none"class="card-title" style="font-size:23p">{{$produit->nom}}</a>
+                            <p class="card-text">{{$produit->prix}}F CFA</p>
                         </div>
-                    </div><!--end main products area-->
-                </div><!--end row-->
-            </div><!--end container-->
-
-            </main>
-            <!--main area-->
-                
-  
-
+                        <div class="card-footer">
+                            <center><a href="#"><button style="border-radius:35px; color:white; width: 100%; height: 35px; background:#139630">Ajouter au panier</button></a></center>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </main>
     </body>
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
-
 </html>
