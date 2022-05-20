@@ -123,7 +123,7 @@
                     <div class="card" style="border: 3px solid #139630; margin-right:5%;width: 100% ">
                         <img src="{{asset ('assets/uploads/produit') }}/{{$produit->image}}" width="5%" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <a href="#" style="text-decoration:none"class="card-title" style="font-size:23p">{{$produit->nom}}</a>
+                            <a href="{{route('produit.detail',['id'=>$produit->id])}}" style="text-decoration:none"class="card-title" style="font-size:23p">{{$produit->nom}}</a>
                             <p class="card-text">{{$produit->prix}}F CFA</p>
                         </div>
                         <div class="card-footer">

@@ -10,7 +10,7 @@ class DetailsComponents extends Component
     public $id;
     public function mount($id)
     {
-       $this->id=$id;
+       $this->id = $id;
     }
     /**
      * Create a new component instance.
