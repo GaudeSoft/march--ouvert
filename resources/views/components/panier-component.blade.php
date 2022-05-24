@@ -171,7 +171,7 @@
                     <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
                 </label>-->
                 <a class="btn btn-checkout" href="checkout.html">Passez au paiement</a>
-                <a class="link-to-shop" href="shop.html">Ajouter d'autres produits<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                <a class="link-to-shop" href="/boutique">Ajouter d'autres produits<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
             </div>
            <!-- <div class="update-clear">
                 <a class="btn btn-clear" href="#">Clear Shopping Cart</a>

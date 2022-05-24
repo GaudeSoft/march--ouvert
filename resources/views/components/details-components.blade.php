@@ -111,7 +111,7 @@
                       <ul>
 
                         <li style="list-style:none">
-                            <img src="{{asset ('assets/uploads/produit') }}/{{$produit->image}}" width="90%" alt=""  style="margin-top: 15%;"/>
+                            <img src="{{asset ('assets/images/banaane2.png') }}"width="90%" alt=""  style="margin-top: 15%;"/>
                         </li>
                       </ul>
                     </div>
@@ -125,7 +125,7 @@
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <a href="#" class="count-review">(05 étoiles)</a>
                     </div>
-                    <h2 class="product-name">Nom</h2>
+                    <h2 class="product-name">{{$produit->nom }} </h2>
                     <div class="short-desc">
                         <li style="list-style:none">Description du produit</li>
                     </div>

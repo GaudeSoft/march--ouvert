@@ -5,9 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Boutique</title>
-        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/animate.css') }}">
         <link rel="stylesheet" type="text/css" href=" {{ asset('frontend/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" type="text/css" href=" {{ asset('frontend/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/carousel.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/chosen.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/style.css') }} ">
@@ -118,9 +116,9 @@
                     </div>
                 </div>
             </div>
-            <div class="container card-group">
+            <div class="container card-group ">
                 @foreach($produits as $produit)
-                    <div class="card" style="border: 3px solid #139630; margin-right:5%;width: 100% ">
+                    <div class="card " style="border: 3px solid #139630; margin-right:5%;width: 100% ">
                         <img src="{{asset ('assets/uploads/produit') }}/{{$produit->image}}" width="5%" class="card-img-top" alt="...">
                         <div class="card-body">
                             <a href="{{route('produit.detail',['id'=>$produit->id])}}" style="text-decoration:none"class="card-title" style="font-size:23p">{{$produit->nom}}</a>
