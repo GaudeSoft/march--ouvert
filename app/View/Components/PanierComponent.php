@@ -23,6 +23,6 @@ class PanierComponent extends Component
      */
     public function render()
     {
-        return view('components.panier-component');
+        return view('components.panier-component')->layout("layouts.welcome");
     }
 }

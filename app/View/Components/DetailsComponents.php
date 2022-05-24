@@ -36,6 +36,6 @@ class DetailsComponents extends Component
     public function render()
     {
         $produit = Produits::where('id',$this->id)->first();
-        return view('components.details-components',['produit'=>$produit]);
+        return view('components.details-components',['produit'=>$produit])->layout("layouts.welcome");
     }
 }

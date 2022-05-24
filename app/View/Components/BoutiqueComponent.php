@@ -34,6 +34,6 @@ class BoutiqueComponent extends Component
     public function render()
     {
         $produits= Produits::paginate(12);
-        return view('components.boutique-component',['produits'=>$produits]);
+        return view('components.boutique-component',['produits'=>$produits])->layout("layouts.welcome");
     }
 }

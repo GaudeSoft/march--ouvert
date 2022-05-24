@@ -23,6 +23,6 @@ class PaiementComponent extends Component
      */
     public function render()
     {
-        return view('components.paiement-component');
+        return view('components.paiement-component')->layout("layouts.welcome");
     }
 }
