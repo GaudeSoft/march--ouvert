@@ -107,61 +107,50 @@
     <div class=" main-content-area">
 
         <div class="wrap-iten-in-cart">
+            @if(Session::has('success_message'))
+                <div>
+                    <strong>Félicitation</strong> {{Session::get('success_message')}}
+                </div>
+            @endif
+            @if(Cart::count() > 0)
             <h3 class="box-title">Produits</h3>
             <ul class="products-cart">
+                @foreach(Cart::content() as $item)
                 <li class="pr-cart-item">
                     <div class="product-image">
-                        <figure><img src="assets/images/banaane2.png" alt=""></figure>
+                        <figure><img src="{{asset ('assets/uploads/produit') }}/{{$item->model->image}}" alt="{{$item->model->nom}}"></figure>
                     </div>
                     <div class="product-name">
-                        <a class="link-to-product" href="#">Banane</a>
+                        <a class="link-to-product" href="{{route('produit.detail',['id'=>$item->model->id])}}">{{$item->nom}}</a>
                     </div>
-                    <div class="price-field produtc-price"><p class="price">200F CFA</p></div>
+                    <div class="price-field produtc-price"><p class="price">{{$item->model->prix}}F CFA</p></div>
                     <div class="quantity">
                         <div class="quantity-input">
-                            <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >									
+                            <input type="text" name="product-quatity" value="{{$item->qte}}" data-max="120" pattern="[0-9]*" >									
                             <a class="btn btn-increase" href="#"></a>
                             <a class="btn btn-reduce" href="#"></a>
                         </div>
                     </div>
-                    <div class="price-field sub-total"><p class="price">200F CFA</p></div>
+                    <div class="price-field sub-total"><p class="price">{{$item->subtotal}}</p></div>
                     <div class="delete">
                         <a href="#" class="btn btn-delete" title="">
-                            <span>Delete from your cart</span>
+                            <span>supprimer du panier</span>
                             <i class="fa fa-times-circle" aria-hidden="true"></i>
                         </a>
                     </div>
                 </li>
-                <li class="pr-cart-item">
-                    <div class="product-image">
-                        <figure><img src="assets/images/av2.png" alt=""></figure>
-                    </div>
-                    <div class="product-name">
-                        <a class="link-to-product" href="#">Avocat</a>
-                    </div>
-                    <div class="price-field produtc-price"><p class="price">250F CFA</p></div>
-                    <div class="quantity">
-                        <div class="quantity-input">
-                            <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*">									
-                            <a class="btn btn-increase" href="#"></a>
-                            <a class="btn btn-reduce" href="#"></a>
-                        </div>
-                    </div>
-                    <div class="price-field sub-total"><p class="price">250F CFA</p></div>
-                    <div class="delete">
-                        <a href="#" class="btn btn-delete" title="">
-                            <span>Delete from your cart</span>
-                            <i class="fa fa-times-circle" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </li>												
+               	@endforeach										
             </ul>
+            @else
+                <p>Aucun produit dans le panier</p>
+            @endif
         </div>
 
         <div class="summary">
             <div class="order-summary">
                 <h4 class="title-box">Récaputulatif de la commande</h4>
-                <p class="summary-info"><span class="title">Sous-total</span><b class="index">550F CFA</b></p>
+                <p class="summary-info"><span class="title">Sous-total</span><b class="index">${{Cart::subtotal()}}</b></p>
+                <p class="summary-info"><span class="title">Taxe</span><b class="index">${{Cart::tax()}}</b></p>
                 <p class="summary-info"><span class="title">Frais de livraison</span><b class="index">Gratuit</b></p>
              
                 <p class="summary-info total-info "><span class="title" style="font-weight: bold;">Total</span><b class="index">550F CFA</b></p>

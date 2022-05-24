@@ -140,7 +140,7 @@
                         </div>
                     </div>
                     <div class="wrap-butons">
-                        <a href="#" class="btn add-to-cart">Ajouter au panier</a>
+                        <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$produit->id}},'{{$produit->nom}}',{{$produit->prix}})">Ajouter au panier</a>
                         <div class="wrap-btn">
                            <!-- <a href="#" class="btn btn-compare">Add Compare</a>-->
                             <a href="#" class="btn btn-wishlist">Ajouter aux favoris</a>

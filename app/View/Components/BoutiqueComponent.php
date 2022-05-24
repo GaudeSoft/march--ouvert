@@ -5,6 +5,8 @@ namespace App\View\Components;
 use App\Models\Produits;
 use Livewire\WithPagination;
 use Illuminate\View\Component;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 
 class BoutiqueComponent extends Component
 {
@@ -16,6 +18,12 @@ class BoutiqueComponent extends Component
     public function __construct()
     {
         //
+    }
+    public function store($produit_id,$produit_nom,$produit_prix)
+    {
+        Cart::add($produit_id,$produit_nom,1,$produit_prix)->associate('App\Models\Produits');
+        session()->flash('success_message','Produit ajouté avec succès');
+        return redirect()->route('produit.panier');
     }
 
     /**

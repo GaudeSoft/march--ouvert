@@ -39,7 +39,7 @@ Route::get('/user/profile',[UserProfileComponent::class,'render']) ->name('user.
 Route::get('/user/profile/edit',[UserEditProfilComponent::class,'render']) ->name('user.editprofile');
 Route::get('/produit/{id}',[DetailsComponents::class,'render']) ->name('produit.detail');
 Route::get('/boutique',[BoutiqueComponent::class,'render']);
-Route::get('/panier',[PanierComponent::class,'render']);
+Route::get('/panier',[PanierComponent::class,'render'])->name('produit.panier');
 Route::get('/paiement',[PaiementComponent::class,'render']);
 
 Auth::routes();
