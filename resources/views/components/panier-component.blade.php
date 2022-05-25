@@ -59,7 +59,7 @@
                                   <a class="nav-link " aria-current="page" href="/boutique" style="color: #139630;">Boutique</a>
                                 </li>
                                 <li class="nav-item"  >
-                                  <a class="nav-link " aria-current="page" href="/panier" style="color: #139630;">Panier</a>
+                                    <a class="nav-link " aria-current="page" href="/panier" style="color: #139630;">Panier <span class="badge badge-pill badge-dark">{{ Cart::count() }}</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #139630;">
@@ -129,10 +129,14 @@
                     </div>
                     <div class="price-field sub-total"><p class="price">{{$item->subtotal}}</p></div>
                     <div class="delete">
-                        <a href="#" class="btn btn-delete" title="">
-                            <span>supprimer du panier</span>
-                            <i class="fa fa-times-circle" aria-hidden="true"></i>
-                        </a>
+                        <form action="{{ route('supprimer.panier',$item->rowId) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-dark" title="">
+                                
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </form>
                     </div>
                 </li>
                	@endforeach										

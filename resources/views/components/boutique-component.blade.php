@@ -140,8 +140,6 @@
 										<form action="{{ route('ajout.panier') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="id" value="{{$produit->id}}">
-                                            <input type="hidden" name="nom" value="{{$produit->nom}}">
-                                            <input type="hidden" name="prix" value="{{$produit->prix}}">
                                             <button type="submit" class="btn btn-dark" >Ajouter au panier</button>
                                         </form>
 									</div>

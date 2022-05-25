@@ -14,6 +14,7 @@ use App\View\Components\user\UserProfileComponent;
 use App\Http\Controllers\Admin\CategorieController;
 use App\View\Components\user\UserEditProfilComponent;
 use App\View\Components\user\UserProfilEditComponent;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,11 @@ Route::get('/paiement',[PaiementComponent::class,'render']);
 
 /* routes panier*/
 Route::post('/panier/ajouter',[CartController::class,'store'])->name('ajout.panier');
+Route::delete('/panier/{rowId}',[CartController::class,'destroy'])->name('supprimer.panier');
+Route::get('/videpanier',function ()
+{
+    Cart::destroy();
+});
 
 Auth::routes();
 
