@@ -60,7 +60,7 @@
                                   <a class="nav-link " aria-current="page" href="/boutique" style="color: #139630;">Boutique</a>
                                 </li>
                                 <li class="nav-item"  >
-                                  <a class="nav-link " aria-current="page" href="/panier" style="color: #139630;">Panier</a>
+                                  <a class="nav-link " aria-current="page" href="/panier" style="color: #139630;">Panier <span class="badge badge-pill badge-dark">{{ Cart::count() }}</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #139630;">
@@ -97,6 +97,11 @@
                 </div>
             </div>
         </nav>
+        @if(session('success'))
+               <div class="alert alert-success">
+                   {{ session('success') }}
+               </div>
+            @endif
 	    <main id="main" class="main-site left-sidebar">
             <div class="container">
                 <div class="row">
@@ -132,7 +137,13 @@
 									<div class="product-info">
 										<a href="{{route('produit.detail',['id'=>$produit->id])}}" class="product-name"><span>{{$produit->nom}}</span></a>
 										<div class="wrap-price"><span class="product-price">{{$produit->prix}}F CFA</span></div>
-										<a href="#" class="btn add-to-cart" wire:click.prevent="store({{$produit->id}},'{{$produit->nom}}',{{$produit->prix}})">Ajouter au panier</a>
+										<form action="{{ route('ajout.panier') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$produit->id}}">
+                                            <input type="hidden" name="nom" value="{{$produit->nom}}">
+                                            <input type="hidden" name="prix" value="{{$produit->prix}}">
+                                            <button type="submit" class="btn btn-dark" >Ajouter au panier</button>
+                                        </form>
 									</div>
 								</div>
 							</li>

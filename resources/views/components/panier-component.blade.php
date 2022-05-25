@@ -107,11 +107,7 @@
     <div class=" main-content-area">
 
         <div class="wrap-iten-in-cart">
-            @if(Session::has('success_message'))
-                <div>
-                    <strong>Félicitation</strong> {{Session::get('success_message')}}
-                </div>
-            @endif
+           
             @if(Cart::count() > 0)
             <h3 class="box-title">Produits</h3>
             <ul class="products-cart">

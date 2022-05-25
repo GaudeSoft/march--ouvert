@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\DetailsComponent;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\View\Components\PanierComponent;
 use App\View\Components\BoutiqueComponent;
@@ -38,9 +39,12 @@ Route::get('produits', [ProduitsController::class,'index']);
 Route::get('/user/profile',[UserProfileComponent::class,'render']) ->name('user.profile');
 Route::get('/user/profile/edit',[UserEditProfilComponent::class,'render']) ->name('user.editprofile');
 Route::get('/produit/{id}',[DetailsComponents::class,'render']) ->name('produit.detail');
-Route::get('/boutique',[BoutiqueComponent::class,'render']);
+Route::get('/boutique',[BoutiqueComponent::class,'render'])->name('boutique.index');
 Route::get('/panier',[PanierComponent::class,'render'])->name('produit.panier');
 Route::get('/paiement',[PaiementComponent::class,'render']);
+
+/* routes panier*/
+Route::post('/panier/ajouter',[CartController::class,'store'])->name('ajout.panier');
 
 Auth::routes();
 
