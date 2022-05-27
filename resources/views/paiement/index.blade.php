@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Mon panier</title>
+        <title>Paiement</title>
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/animate.css') }}">
         <link rel="stylesheet" type="text/css" href=" {{ asset('frontend/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href=" {{ asset('frontend/css/bootstrap.min.css') }}">
@@ -25,34 +25,30 @@
         <!-- Styles -->
         <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     </head>
-    <body class="antialiased">    
+<body class="antialiased">    
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="assets/images/logo.png" width="10%" alt="Ananas"> 
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                   
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
-                                </li>
-                            @endif
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="assets/images/logo.png" width="10%" alt="Ananas"> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ms-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
+                            </li>
+                        @endif
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
+                            </li>
+                        @endif
                         @else
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item"  >
@@ -96,96 +92,81 @@
                 </div>
             </div>
         </nav>
-    
-                
-    	<!--main area-->
 	<main id="main" class="main-site">
-
-<div class="container">
-
-   
-    <div class=" main-content-area">
-
-        <div class="wrap-iten-in-cart">
-           
-            @if(Cart::count() > 0)
-            <h3 class="box-title">Produits</h3>
-            <ul class="products-cart">
-                @foreach(Cart::content() as $item)
-                <li class="pr-cart-item">
-                    <div class="product-image">
-                        <figure><img src="{{asset ('assets/uploads/produit') }}/{{$item->model->image}}" alt="{{$item->model->nom}}"></figure>
-                    </div>
-                    <div class="product-name">
-                        <a class="link-to-product" href="{{route('produit.detail',['id'=>$item->model->id])}}">{{$item->nom}}</a>
-                    </div>
-                    <div class="price-field produtc-price"><p class="price">{{$item->model->prix}}F CFA</p></div>
-                    <div class="quantity">
-                        <div class="quantity-input">
-                            <input type="text" name="product-quatity" value="{{$item->qte}}" data-max="120" pattern="[0-9]*" >									
-                            <a class="btn btn-increase" valie="1"href="#" wire:click.prevent="increaseQuantite('{{$item->id}}')"></a>
-                            <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantite('{{$item->id}}')"></a>
+        <div class="container">
+            <div class="wrap-breadcrumb"></div>
+            <div class=" main-content-area">
+                <div class="wrap-address-billing">
+                    <h3 class="box-title">Addresse de livraison</h3>
+                    <form action="#" method="get" name="frm-billing">
+                        <p class="row-in-form">
+                            <label for="nom">Nom<span>*</span></label>
+                            <input id="nom" type="text" name="nom" value="" placeholder="Votre nom">
+                        </p>
+                        <p class="row-in-form">
+                            <label for="prenom">Prenom<span>*</span></label>
+                            <input id="prenom" type="text" name="prenom" value="" placeholder="Votre prenom">
+                        </p>
+                        <p class="row-in-form">
+                            <label for="email">Email :</label>
+                            <input id="email" type="email" name="email" value="" placeholder="Entrez votre email">
+                        </p>
+                        <p class="row-in-form">
+                            <label for="phone">Numero de téléphone <span>*</span></label>
+                            <input id="phone" type="number" name="phone" value="" placeholder="Entrez votre numéro de téléphone">
+                        </p>
+                        <p class="row-in-form">
+                            <label for="adresse">Addresse:</label>
+                            <input id="adresse" type="text" name="adresse" value="" placeholder="Entrez votre adresse">
+                        </p>
+                        <p class="row-in-form">
+                            <label for="vile">Vile<span>*</span></label>
+                            <input id="vile" type="text" name="vile" value="" placeholder="Abomey-Calavi">
+                        </p>
+                    
+                        <p class="row-in-form">
+                            <label for="quatier">Quatier<span>*</span></label>
+                            <input id="quatier" type="text" name="quatier" value="" placeholder="Kpota">
+                        </p>
+                        
+                    </form>
+                </div>
+                <div class="summary summary-checkout">
+                    <div class="summary-item payment-method">
+                        <h4 class="title-box">Methode de paiement </h4>
+                        
+                        <div class="choose-payment-methods">
+                            <label class="payment-method">
+                                <input name="payment-method" id="payment-method-bank" value="momo" type="radio">
+                                <span>MTN Momo</span>
+                            
+                            </label>
+                            <label class="payment-method">
+                                <input name="payment-method" id="payment-method-visa" value="UBA" type="radio">
+                                <span>UBA</span>
+                            </label>
+                            <label class="payment-method">
+                                <input name="payment-method" id="payment-method-paypal" value="paypal" type="radio">
+                                <span>Paypal</span>
+                            </label>
                         </div>
+                        <p class="summary-info grand-total"><span>Grand Total:</span> <span class="grand-total-price">{{Cart::total()}}F CFA</span></p>
+                        <a href="#" class="btn btn-medium">Payer maintenant</a>
                     </div>
-                    <div class="price-field sub-total"><p class="price">{{$item->subtotal}}F CFA</p></div>
-                    <div class="delete">
-                        <form action="{{ route('supprimer.panier',$item->rowId) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-danger" title="">
-                                
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                        </form>
+                    <div class="summary-item shipping-method">
+                        <h4 class="title-box f-title">Livraison</h4>
+                        <p class="summary-info grand-total"><span>Frais de livraison:</span> <span class="grand-total-price">{{Cart::total()}}F CFA</span></p>
                     </div>
-                </li>
-               	@endforeach										
-            </ul>
-            
-        </div>
-
-        <div class="summary">
-            <div class="order-summary">
-                <h4 class="title-box">Récaputulatif de la commande</h4>
-                <p class="summary-info"><span class="title">Sous-total</span><b class="index">{{Cart::subtotal()}}F CFA</b></p>
-                <p class="summary-info"><span class="title">Taxe</span><b class="index">{{Cart::tax()}}F CFA</b></p>
-                <p class="summary-info"><span class="title">Frais de livraison</span><b class="index">Gratuit</b></p>
-             
-                <p class="summary-info total-info "><span class="title" style="font-weight: bold;">Total</span><b class="index">{{Cart::total()}}F CFA</b></p>
-            </div>
-            <div class="checkout-info">
-               <!-- <label class="checkbox-field">
-                    <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
-                </label>-->
-                <a class="btn btn-checkout" href="{{ route('paiement.index') }}">Passez au paiement</a>
-                <a class="link-to-shop" href="/boutique">Ajouter d'autres produits<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-            </div>
-           <!-- <div class="update-clear">
-                <a class="btn btn-clear" href="#">Clear Shopping Cart</a>
-                <a class="btn btn-update" href="#">Update Shopping Cart</a>
-            </div>-->
-        </div>
-        @else
-            <p class="text-success" style="font-weight: bold;font-size:xx-large;margin-top:15%;text-align:center">Votre panier est vide</p>
-            <div class="checkout-info">
-                <a class="link-to-shop" href="/boutique">Ajouter un produit<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-            </div>
-        @endif
-   
-    </div><!--end main content area-->
-</div><!--end container-->
-
-</main>
-<!--main area-->
-
-    </body>
-    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
-    <script src="{{ asset('frontend/js/jquery-1.12.4.minb8ff.js?ver=1.12.4.js') }}" ></script>
-    <script src="{{ asset('frontend/js/bootstrap.min.js') }}" ></script>
-    <script src="{{ asset('frontend/js/chosen.jquery.min.js') }}" ></script>
-    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>
-    <script src="{{ asset('frontend/js/jquery.sticky.js') }}" ></script>
-    <script src="{{ asset('frontend/js/functions.js') }}" ></script>
- 
-
+                </div>
+            </div><!--end main content area-->
+        </div><!--end container-->
+    </main>
+</body>
+<script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
+<script src="{{ asset('frontend/js/jquery-1.12.4.minb8ff.js?ver=1.12.4.js') }}" ></script>
+<script src="{{ asset('frontend/js/bootstrap.min.js') }}" ></script>
+<script src="{{ asset('frontend/js/chosen.jquery.min.js') }}" ></script>
+<script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>
+<script src="{{ asset('frontend/js/jquery.sticky.js') }}" ></script>
+<script src="{{ asset('frontend/js/functions.js') }}" ></script>
 </html>

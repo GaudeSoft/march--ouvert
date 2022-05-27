@@ -9,7 +9,12 @@ class Produits extends Model
 {
     use HasFactory;
 
+    public function getPrice()
+    {
+        $prix = $this-> prix / 100;
 
+        return number_format($prix, 2, ',' ,''). 'F CFA';
+    }
     protected $table = 'produits';
     protected $fillable = [
         'nom',

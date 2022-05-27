@@ -19,6 +19,19 @@ class BoutiqueComponent extends Component
     {
         //
     }
+    public function increaseQuantite($rowId)
+    {
+        $produit = Cart::get($rowId);
+        $qte = $produit->qte + 1;
+        Cart::update($rowId,$qte);
+    }
+
+    public function decreaseQuantite($rowId)
+    {
+        $produit = Cart::get($rowId);
+        $qte = $produit->qte - 1;
+        Cart::update($rowId,$qte);
+    }
     public function store($produit_id,$produit_nom,$produit_prix)
     {
         Cart::add($produit_id,$produit_nom,1,$produit_prix)->associate('App\Models\Produits');
