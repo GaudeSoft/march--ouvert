@@ -9,22 +9,6 @@
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto h-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
-      <li class="nav-item {{ Request::is('#') ? 'active':''}}">
-          <a class="nav-link text-white " href="#">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">list</i>
-            </div>
-            <span class="nav-link-text ms-1">Liste des clients</span>
-          </a>
-        </li>
-        <li class="nav-item {{ Request::is('#') ? 'active':''}}">
-          <a class="nav-link text-white " href="#">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">list</i>
-            </div>
-            <span class="nav-link-text ms-1">Liste des producteurs</span>
-          </a>
-        </li>
         <li class="nav-item {{ Request::is('#') ? 'active':''}}">
           <a class="nav-link text-white " href="{{ route('user.profile') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -65,8 +49,31 @@
             <span class="nav-link-text ms-1">Produits</span>
           </a>
         </li>
+        <li class="nav-item {{ Request::is('#') ? 'active':''}}">
+          <a class="nav-link text-white " href="#">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">list</i>
+            </div>
+            <span class="nav-link-text ms-1">Liste des clients</span>
+          </a>
+        </li>
+        <li class="nav-item {{ Request::is('#') ? 'active':''}}">
+          <a class="nav-link text-white " href="#">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">list</i>
+            </div>
+            <span class="nav-link-text ms-1">Liste des avis</span>
+          </a>
+        </li>
+        <li class="nav-item {{ Request::is('#') ? 'active':''}}">
+          <a class="nav-link text-white " href="#">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">list</i>
+            </div>
+            <span class="nav-link-text ms-1">Liste des producteurs</span>
+          </a>
+        </li>
         
-       
       </ul>
     </div>
   </aside>

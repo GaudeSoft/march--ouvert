@@ -151,7 +151,7 @@
                             </label>
                         </div>
                         <p class="summary-info grand-total"><span>Grand Total:</span> <span class="grand-total-price">{{Cart::total()}}F CFA</span></p>
-                        <a href="#" class="btn btn-medium">Payer maintenant</a>
+                        <a href="#" class="btn btn-lg btn-block">Payer maintenant</a>
                     </div>
                     <div class="summary-item shipping-method">
                         <h4 class="title-box f-title">Livraison</h4>

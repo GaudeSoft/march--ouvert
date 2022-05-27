@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('/paiement',[PaiementController::class,'index'])->name('paiement.index');  
     Route::get('/user/profile',[UserProfileComponent::class,'render']) ->name('user.profile');
     Route::get('/user/profile/edit',[UserEditProfilComponent::class,'render']) ->name('user.editprofile');
-    Route::get('/produit/{id}',[DetailsComponents::class,'render']) ->name('produit.detail');
+    Route::get('/produit/{id}',[ProduitsController::class,'show']) ->name('produit.detail');
     Route::get('/boutique',[BoutiqueComponent::class,'render'])->name('boutique.index');
     Route::get('/panier',[PanierComponent::class,'render'])->name('produit.panier'); 
 });

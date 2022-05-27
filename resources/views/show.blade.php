@@ -174,11 +174,11 @@
                 </div>
             </div>
             <div class="row mb-2 container-fluid">
-                @foreach($produits as $produit) 
-                    <div class="col-md-6">
+
+                    <div class="col-md-12">
                         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">       
                         <div class="col-auto d-none d-lg-block">
-                                    <a href="{{route('produit.detail',['id'=>$produit->id])}}" style="width:2%"title="{{$produit->nom}}">
+                                    <a href="{{ route('produit.show',$produit->id) }}" style="width:2%"title="{{$produit->nom}}">
                                         <img src="{{asset ('assets/uploads/produit') }}/{{$produit->image}}" width="200" height="200" alt="{{$produit->nom}}">
                                     </a>
                                 </div>   
@@ -197,7 +197,6 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
             </div>
         </main>
     </body>
