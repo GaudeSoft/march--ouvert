@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('/produit/{id}',[ProduitsController::class,'show']) ->name('produit.detail');
     Route::get('/boutique',[BoutiqueComponent::class,'render'])->name('boutique.index');
     Route::get('/panier',[PanierComponent::class,'render'])->name('produit.panier'); 
-    Route::post('/payer',[PaiementController::class,'paiement']);
+    Route::post('/payer',[PaiementController::class,'paiementCommande']);
 });
 
 Route::group(['middleware' => ['auth']], function ()

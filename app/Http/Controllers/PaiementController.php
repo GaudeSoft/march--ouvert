@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Paiement;
+use App\Models\PaiementItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class PaiementController extends Controller
 {
@@ -15,9 +19,29 @@ class PaiementController extends Controller
     {
         return view('paiement.index');
     }
-    public function paiement(Request $request)
+    public function paiementCommande(Request $request)
     {
-        # code...
+        $paiement = new Paiement();
+        $paiement->lnom = $request->input('lnom');
+        $paiement->lprenom = $request->input('lprenom');
+        $paiement->lemail = $request->input('lemail');
+        $paiement->lphone = $request->input('lphone');
+        $paiement->ladresse = $request->input('ladresse');
+        $paiement->ville = $request->input('ville');
+        $paiement->quatier = $request->input('quatier');
+        $paiement->tracking_no = "gautier".rand(1111,9999);
+        $paiement->save();
+
+       /* $cartitems = Cart::where('user_id',Auth::id())->get();
+        foreach($cartitems as $item){
+            PaiementItem::create([
+                'paiement_id'=> $paiement->id,
+                'produit_id' => $itemProduit->id,
+                'qte' => $itemProduit->qte,
+                'prix' => $itemProduit->prix,
+            ])
+        }*/
+        return redirect('/')->with('status','Commande effectué avec succès');
     }
 
     /**

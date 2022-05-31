@@ -23,7 +23,7 @@ class CreatePaiementTable extends Migration
             $table->string('ville');
             $table->string('quatier');
             $table->tinyInteger('status')->default('0');
-            $table->string('message');
+            $table->string('message')->nullable();
             $table->string('tracking_no');
             $table->timestamps();
         });

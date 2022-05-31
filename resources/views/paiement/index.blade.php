@@ -129,8 +129,8 @@
                                 <input id="ladresse" type="text" name="ladresse" value="" placeholder="Entrez votre adresse">
                             </p>
                             <p class="row-in-form">
-                                <label for="vile">Vile<span>*</span></label>
-                                <input id="vile" type="text" name="vile" value="" placeholder="Abomey-Calavi">
+                                <label for="ville">Ville<span>*</span></label>
+                                <input id="ville" type="text" name="ville"  placeholder="Abomey-Calavi">
                             </p>
                         
                             <p class="row-in-form">
