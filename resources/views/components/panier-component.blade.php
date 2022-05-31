@@ -122,7 +122,7 @@
                     <div class="price-field produtc-price"><p class="price">{{$item->model->prix}}F CFA</p></div>
                     <div class="quantity">
                         <div class="quantity-input">
-                            <input type="text" name="product-quatity" value="{{$item->qte}}" data-max="120" pattern="[0-9]*" >									
+                            <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >									
                             <a class="btn btn-increase" value="1"href="#" wire:click.prevent="increaseQuantite('{{$item->id}}')" title="Augmenter la quantité"></a>
                             <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantite('{{$item->id}}')" title="Dimunier la quantité"></a>
                         </div>
