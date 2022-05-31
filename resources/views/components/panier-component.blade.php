@@ -123,8 +123,8 @@
                     <div class="quantity">
                         <div class="quantity-input">
                             <input type="text" name="product-quatity" value="{{$item->qte}}" data-max="120" pattern="[0-9]*" >									
-                            <a class="btn btn-increase" valie="1"href="#" wire:click.prevent="increaseQuantite('{{$item->id}}')"></a>
-                            <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantite('{{$item->id}}')"></a>
+                            <a class="btn btn-increase" value="1"href="#" wire:click.prevent="increaseQuantite('{{$item->id}}')" title="Augmenter la quantité"></a>
+                            <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantite('{{$item->id}}')" title="Dimunier la quantité"></a>
                         </div>
                     </div>
                     <div class="price-field sub-total"><p class="price">{{$item->subtotal}}F CFA</p></div>
@@ -132,8 +132,7 @@
                         <form action="{{ route('supprimer.panier',$item->rowId) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-danger" title="">
-                                
+                            <button type="submit" class="text-danger" title="Retirer le produit">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
                         </form>
@@ -157,7 +156,7 @@
                <!-- <label class="checkbox-field">
                     <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
                 </label>-->
-                <a class="btn btn-checkout" href="{{ route('paiement.index') }}">Passez au paiement</a>
+                <a class="btn btn-checkout" href="{{ route('paiement.index') }}"><b>Passez au paiement</b></a>
                 <a class="link-to-shop" href="/boutique">Ajouter d'autres produits<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
             </div>
            <!-- <div class="update-clear">

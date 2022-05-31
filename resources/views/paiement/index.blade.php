@@ -63,6 +63,13 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li>
+                                            <a class="dropdown-item"  href="{{ route('user.profile') }}">
+                                            <i class="material-icons opacity-10" style="color: #139630;">person</i>
+                                               Mon profil
+                                            </a>
+                                        </li>
+                                   
+                                        <li>
                                             <a class="dropdown-item" href="/panier">
                                             <i class="material-icons opacity-10" style="color: #139630;">shop</i>
                                                Mon panier
@@ -94,71 +101,74 @@
         </nav>
 	<main id="main" class="main-site">
         <div class="container">
-            <div class="wrap-breadcrumb"></div>
-            <div class=" main-content-area">
-                <div class="wrap-address-billing">
-                    <h3 class="box-title">Addresse de livraison</h3>
-                    <form action="#" method="get" name="frm-billing">
-                        <p class="row-in-form">
-                            <label for="nom">Nom<span>*</span></label>
-                            <input id="nom" type="text" name="nom" value="" placeholder="Votre nom">
-                        </p>
-                        <p class="row-in-form">
-                            <label for="prenom">Prenom<span>*</span></label>
-                            <input id="prenom" type="text" name="prenom" value="" placeholder="Votre prenom">
-                        </p>
-                        <p class="row-in-form">
-                            <label for="email">Email :</label>
-                            <input id="email" type="email" name="email" value="" placeholder="Entrez votre email">
-                        </p>
-                        <p class="row-in-form">
-                            <label for="phone">Numero de téléphone <span>*</span></label>
-                            <input id="phone" type="number" name="phone" value="" placeholder="Entrez votre numéro de téléphone">
-                        </p>
-                        <p class="row-in-form">
-                            <label for="adresse">Addresse:</label>
-                            <input id="adresse" type="text" name="adresse" value="" placeholder="Entrez votre adresse">
-                        </p>
-                        <p class="row-in-form">
-                            <label for="vile">Vile<span>*</span></label>
-                            <input id="vile" type="text" name="vile" value="" placeholder="Abomey-Calavi">
-                        </p>
-                    
-                        <p class="row-in-form">
-                            <label for="quatier">Quatier<span>*</span></label>
-                            <input id="quatier" type="text" name="quatier" value="" placeholder="Kpota">
-                        </p>
+            <form action="{{  url('payer')}}" method="post">
+                {{ csrf_field() }}
+                <div class="wrap-breadcrumb"></div>
+                <div class=" main-content-area">
+                    <div class="wrap-address-billing">
+                        <h3 class="box-title">Addresse de livraison</h3>
+                        <form action="#" method="get" name="frm-billing">
+                            <p class="row-in-form">
+                                <label for="nom">Nom<span>*</span></label>
+                                <input id="lnom" type="text" name="lnom" value=" {{ Auth::user()->nom}}" >
+                            </p>
+                            <p class="row-in-form">
+                                <label for="prenom">Prenom<span>*</span></label>
+                                <input id="lprenom" type="text" name="lprenom" value=" {{ Auth::user()->prenom}}" >
+                            </p>
+                            <p class="row-in-form">
+                                <label for="email">Email :</label>
+                                <input id="lemail" type="email" name="lemail" value=" {{ Auth::user()->email}}" >
+                            </p>
+                            <p class="row-in-form">
+                                <label for="phone">Numero de téléphone <span>*</span></label>
+                                <input id="lphone" type="text" name="lphone" value=" {{ Auth::user()->telephone}}" >
+                            </p>
+                            <p class="row-in-form">
+                                <label for="adresse">Addresse:</label>
+                                <input id="ladresse" type="text" name="ladresse" value="" placeholder="Entrez votre adresse">
+                            </p>
+                            <p class="row-in-form">
+                                <label for="vile">Vile<span>*</span></label>
+                                <input id="vile" type="text" name="vile" value="" placeholder="Abomey-Calavi">
+                            </p>
                         
-                    </form>
-                </div>
-                <div class="summary summary-checkout">
-                    <div class="summary-item payment-method">
-                        <h4 class="title-box">Methode de paiement </h4>
-                        
-                        <div class="choose-payment-methods">
-                            <label class="payment-method">
-                                <input name="payment-method" id="payment-method-bank" value="momo" type="radio">
-                                <span>MTN Momo</span>
+                            <p class="row-in-form">
+                                <label for="quatier">Quatier<span>*</span></label>
+                                <input id="quatier" type="text" name="quatier" value="" placeholder="Kpota">
+                            </p>
                             
-                            </label>
-                            <label class="payment-method">
-                                <input name="payment-method" id="payment-method-visa" value="UBA" type="radio">
-                                <span>UBA</span>
-                            </label>
-                            <label class="payment-method">
-                                <input name="payment-method" id="payment-method-paypal" value="paypal" type="radio">
-                                <span>Paypal</span>
-                            </label>
+                        </form>
+                    </div>
+                    <div class="summary summary-checkout">
+                        <div class="summary-item payment-method">
+                            <h4 class="title-box">Methode de paiement </h4>
+                            
+                            <div class="choose-payment-methods">
+                                <label class="payment-method">
+                                    <input name="payment-method" id="payment-method-bank" value="momo" type="radio">
+                                    <span>MTN Momo</span>
+                                
+                                </label>
+                                <label class="payment-method">
+                                    <input name="payment-method" id="payment-method-visa" value="UBA" type="radio">
+                                    <span>UBA</span>
+                                </label>
+                                <label class="payment-method">
+                                    <input name="payment-method" id="payment-method-paypal" value="paypal" type="radio">
+                                    <span>Paypal</span>
+                                </label>
+                            </div>
+                            <p class="summary-info grand-total"><span>Montant à payer:</span> <span class="grand-total-price">{{Cart::total()}}F CFA</span></p>
+                            <button type="submit" class="btn btn-lg btn-block">Payer maintenant</button>
                         </div>
-                        <p class="summary-info grand-total"><span>Grand Total:</span> <span class="grand-total-price">{{Cart::total()}}F CFA</span></p>
-                        <a href="#" class="btn btn-lg btn-block">Payer maintenant</a>
+                        <div class="summary-item shipping-method">
+                            <h4 class="title-box f-title">Livraison</h4>
+                            <p class="summary-info grand-total"><span>Frais de livraison:</span> <span class="grand-total-price">Gratuit</span></p>
+                        </div>
                     </div>
-                    <div class="summary-item shipping-method">
-                        <h4 class="title-box f-title">Livraison</h4>
-                        <p class="summary-info grand-total"><span>Frais de livraison:</span> <span class="grand-total-price">{{Cart::total()}}F CFA</span></p>
-                    </div>
-                </div>
-            </div><!--end main content area-->
+                </div><!--end main content area-->
+            </form>
         </div><!--end container-->
     </main>
 </body>

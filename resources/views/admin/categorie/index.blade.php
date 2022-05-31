@@ -27,7 +27,7 @@
                                 <img src="{{ asset('assets/uploads/categorie/'.$item->image) }}" class="cate-image" alt="Image" >   
                             </td>
                             <td>
-                                <a href="{{ url('modifierCategorie/'.$item->id) }}"  class="btn btn-success">Modifier</a>
+                                <a  href="{{ url('modifierCategorie/'.$item->id) }}" onclick="confirm('Voulez vous supprimer définitivement cette catégorie ?') || event.stopImmediatePropagation()" class="btn btn-success">Modifier</a>
                                 <a href="{{ url('suprrimerCategorie/'.$item->id) }}"  class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>

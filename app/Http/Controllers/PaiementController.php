@@ -15,6 +15,10 @@ class PaiementController extends Controller
     {
         return view('paiement.index');
     }
+    public function paiement(Request $request)
+    {
+        # code...
+    }
 
     /**
      * Show the form for creating a new resource.
