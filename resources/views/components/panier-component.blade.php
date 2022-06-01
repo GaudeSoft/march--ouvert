@@ -25,8 +25,8 @@
         <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     </head>
     <body class="antialiased">    
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+    @include('menu')
+                <div class="container">
                 <a class="navbar-brand" href="/">
                     <img src="assets/images/logo.png" width="10%" alt="Ananas"> 
                 </a>

@@ -77,6 +77,8 @@ Route::group(['middleware' => ['auth']], function ()
     Route::post('/payer',[PaiementController::class,'paiementCommande']);
     
     Route::get('/mes_commandes',[UserController::class,'index']);
+    Route::get('/voir_commande',[UserController::class,'voir']);
+    
 });
 
 Route::group(['middleware' => ['auth']], function ()

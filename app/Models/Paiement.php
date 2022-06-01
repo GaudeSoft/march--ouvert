@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\PaiementItem;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Paiement extends Model
 {
@@ -23,4 +24,9 @@ class Paiement extends Model
         'message',
         'tracking_no',
     ];
+
+    public function commandeitem()
+    {
+        return $this->hasMany(PaiementItem::class);
+    }
 }
