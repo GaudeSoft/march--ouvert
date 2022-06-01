@@ -11,6 +11,7 @@ class Paiement extends Model
 
     protected $table = 'paiement';
     protected $fillable = [
+        'user_id',
         'lnom',
         'lprenom',
         'lemail',

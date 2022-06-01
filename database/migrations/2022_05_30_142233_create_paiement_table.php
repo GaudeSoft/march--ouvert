@@ -15,6 +15,7 @@ class CreatePaiementTable extends Migration
     {
         Schema::create('paiement', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('lnom');
             $table->string('lprenom');
             $table->string('lemail');

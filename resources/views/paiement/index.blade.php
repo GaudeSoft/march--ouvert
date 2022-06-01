@@ -4,10 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Paiement</title>
+        <title>Ma commande</title>
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/animate.css') }}">
         <link rel="stylesheet" type="text/css" href=" {{ asset('frontend/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" type="text/css" href=" {{ asset('frontend/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/carousel.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/chosen.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/style.css') }} ">
@@ -16,7 +15,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
         <style>
@@ -25,30 +24,34 @@
         <!-- Styles -->
         <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     </head>
-<body class="antialiased">    
+    <body class="antialiased">    
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="assets/images/logo.png" width="10%" alt="Ananas"> 
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto">
-                    <!-- Authentication Links -->
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
-                            </li>
-                        @endif
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
-                            </li>
-                        @endif
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="assets/images/logo.png" width="10%" alt="Ananas"> 
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                   
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
+                                </li>
+                            @endif
                         @else
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item"  >
@@ -62,13 +65,6 @@
                                         {{ Auth::user()->prenom}}
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li>
-                                            <a class="dropdown-item"  href="{{ route('user.profile') }}">
-                                            <i class="material-icons opacity-10" style="color: #139630;">person</i>
-                                               Mon profil
-                                            </a>
-                                        </li>
-                                   
                                         <li>
                                             <a class="dropdown-item" href="/panier">
                                             <i class="material-icons opacity-10" style="color: #139630;">shop</i>
@@ -99,84 +95,123 @@
                 </div>
             </div>
         </nav>
-	<main id="main" class="main-site">
         <div class="container">
+            <h1 class="mt-3"style="text-align: center; color:#139630">Votre commande</h1>
+            <hr>
+        </div>
+        <div class="container mt-3" >
             <form action="{{  url('payer')}}" method="post">
                 {{ csrf_field() }}
-                <div class="wrap-breadcrumb"></div>
-                <div class=" main-content-area">
-                    <div class="wrap-address-billing">
-                        <h3 class="box-title">Addresse de livraison</h3>
-                        <form action="#" method="get" name="frm-billing">
-                            <p class="row-in-form">
-                                <label for="nom">Nom<span>*</span></label>
-                                <input id="lnom" type="text" name="lnom" value=" {{ Auth::user()->nom}}" >
-                            </p>
-                            <p class="row-in-form">
-                                <label for="prenom">Prenom<span>*</span></label>
-                                <input id="lprenom" type="text" name="lprenom" value=" {{ Auth::user()->prenom}}" >
-                            </p>
-                            <p class="row-in-form">
-                                <label for="email">Email :</label>
-                                <input id="lemail" type="email" name="lemail" value=" {{ Auth::user()->email}}" >
-                            </p>
-                            <p class="row-in-form">
-                                <label for="phone">Numero de téléphone <span>*</span></label>
-                                <input id="lphone" type="text" name="lphone" value=" {{ Auth::user()->telephone}}" >
-                            </p>
-                            <p class="row-in-form">
-                                <label for="adresse">Addresse:</label>
-                                <input id="ladresse" type="text" name="ladresse" value="" placeholder="Entrez votre adresse">
-                            </p>
-                            <p class="row-in-form">
-                                <label for="ville">Ville<span>*</span></label>
-                                <input id="ville" type="text" name="ville"  placeholder="Abomey-Calavi">
-                            </p>
-                        
-                            <p class="row-in-form">
-                                <label for="quatier">Quatier<span>*</span></label>
-                                <input id="quatier" type="text" name="quatier" value="" placeholder="Kpota">
-                            </p>
-                            
-                        </form>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Vos informations </h6> 
+                            <hr>
+                            <div class="row">
+                                <form action="#" method="get">
+                                    
+                                    <div class="col-md-12 mb-3 mt-1">
+                                        <label class="text-success" for="nom" class="col-form-label">Nom<span>*</span></label>
+                                        <input id="lnom" type="text" name="lnom" value=" {{ Auth::user()->nom}}" class="form-control">                                    
+                                    </div>
+                                    <div class="col-md-12 mb-3 mt-1">
+                                        <label class="text-success" for="prenom">Prenom<span>*</span></label>
+                                        <input id="lprenom" type="text" name="lprenom" value=" {{ Auth::user()->prenom}}"class="form-control" >  
+                                    </div>
+                                    <div class="col-md-12 mb-3 mt-1">
+                                        <label class="text-success" for="email">Email :</label>
+                                        <input id="lemail" type="email" name="lemail" value=" {{ Auth::user()->email}}" class="form-control">
+                                    </div>
+                                    <div class="col-md-12 mb-3 mt-1">
+                                        <label class="text-success" for="phone">Numero de téléphone <span>*</span></label>
+                                        <input id="lphone" type="text" name="lphone" value=" {{ Auth::user()->telephone}}"class="form-control" >
+                                    </div>
+                                    <div class="col-md-12 mb-3 mt-1">
+                                        <label class="text-success" for="adresse">Addresse:</label>
+                                        <input id="ladresse" type="text" name="ladresse" value="" placeholder="Entrez votre adresse" class="form-control">
+                                    </div>
+                                    <div class="col-md-12 mb-3 mt-1">
+                                        <label class="text-success" for="ville">Ville<span>*</span></label>
+                                        <input id="ville" type="text" name="ville"  placeholder="Abomey-Calavi" class="form-control">
+                                    </div>
+                                    <div class="col-md-12 mb-3 mt-1">
+                                        <label class="text-success" for="quatier">Quatier<span>*</span></label>
+                                        <input id="quatier" type="text" name="quatier" value="" placeholder="Kpota" class="form-control">
+                                    </div>
+                                </form>
+                            </div>           
+                        </div>
                     </div>
-                    <div class="summary summary-checkout">
-                        <div class="summary-item payment-method">
-                            <h4 class="title-box">Methode de paiement </h4>
-                            
-                            <div class="choose-payment-methods">
-                                <label class="payment-method">
-                                    <input name="payment-method" id="payment-method-bank" value="momo" type="radio">
-                                    <span>MTN Momo</span>
+                </div>
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Details de la commande</h6> 
+                            <hr>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Nom</td>
+                                        <td>Quantité</td>
+                                        <td>Prix</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach(Cart::content() as $item)
+                                    <tr>
+                                        <td>{{$item->model->nom}}</td>
+                                        <td>1</td>
+                                        <td>{{$item->subtotal}}F CFA</td>
+                                    </tr>
+                                    @endforeach   
+                                </tbody>
+                            </table>
+                          <hr>
+                          <div class="summary">
+                            <div class="order-summary">
+                                <h4 class="title-box">Récaputulatif de la commande</h4>
+                                <p class="summary-info"><span class="title">Sous-total</span><b class="index">{{Cart::subtotal()}}F CFA</b></p>
+                                <p class="summary-info"><span class="title">Taxe</span><b class="index">{{Cart::tax()}}F CFA</b></p>
+                                <p class="summary-info"><span class="title">Frais de livraison</span><b class="index">Gratuit</b></p>
+                                <p class="summary-info total-info "><span class="title" style="font-weight: bold;">Total</span><b class="index">{{Cart::total()}}F CFA</b></p>
+                            </div><hr>
+                            <div class="summary-item payment-method">
+                                <h4 class="title-box">Mode de paiement</h4>
+                                <div class="choose-payment-methods">
+                                    <label class="payment-method">
+                                        <input name="payment-method" id="payment-method-fedapay" value="fedapay" type="radio">
+                                        <span>Fedapay</span>
+                                        <!--<span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>-->
+                                    </label>
+                                    <label class="payment-method">
+                                        <input name="payment-method" id="payment-method-bank" value="bank" type="radio">
+                                        <span>Virement bancaire</span>
+                                        <!--<span class="payment-desc">You can pay with your credit</span>
+                                        <span class="payment-desc">card if you don't have a paypal account</span>-->
+                                    </label>
+						        </div><hr>
+						        <button type="submit" class="btn  w-100"><b>Passez au paiement</b></button>
+					</div>
+                            <div class="checkout-info">
                                 
-                                </label>
-                                <label class="payment-method">
-                                    <input name="payment-method" id="payment-method-visa" value="UBA" type="radio">
-                                    <span>UBA</span>
-                                </label>
-                                <label class="payment-method">
-                                    <input name="payment-method" id="payment-method-paypal" value="paypal" type="radio">
-                                    <span>Paypal</span>
-                                </label>
+                                <a class="link-to-shop" href="/boutique">Ajouter d'autres produits<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                             </div>
-                            <p class="summary-info grand-total"><span>Montant à payer:</span> <span class="grand-total-price">{{Cart::total()}}F CFA</span></p>
-                            <button type="submit" class="btn btn-lg btn-block">Payer maintenant</button>
-                        </div>
-                        <div class="summary-item shipping-method">
-                            <h4 class="title-box f-title">Livraison</h4>
-                            <p class="summary-info grand-total"><span>Frais de livraison:</span> <span class="grand-total-price">Gratuit</span></p>
+                        </div>              
                         </div>
                     </div>
-                </div><!--end main content area-->
+                </div>
+            </div>
             </form>
-        </div><!--end container-->
-    </main>
-</body>
-<script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
-<script src="{{ asset('frontend/js/jquery-1.12.4.minb8ff.js?ver=1.12.4.js') }}" ></script>
-<script src="{{ asset('frontend/js/bootstrap.min.js') }}" ></script>
-<script src="{{ asset('frontend/js/chosen.jquery.min.js') }}" ></script>
-<script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>
-<script src="{{ asset('frontend/js/jquery.sticky.js') }}" ></script>
-<script src="{{ asset('frontend/js/functions.js') }}" ></script>
+        </div>
+    </body>
+    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('frontend/js/jquery-1.12.4.minb8ff.js?ver=1.12.4.js') }}" ></script>
+    <script src="{{ asset('frontend/js/bootstrap.min.js') }}" ></script>
+    <script src="{{ asset('frontend/js/chosen.jquery.min.js') }}" ></script>
+    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>
+    <script src="{{ asset('frontend/js/jquery.sticky.js') }}" ></script>
+    <script src="{{ asset('frontend/js/functions.js') }}" ></script>
+ 
+
 </html>

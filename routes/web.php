@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\View\Components\PanierComponent;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\View\Components\BoutiqueComponent;
@@ -74,6 +75,8 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('/boutique',[BoutiqueComponent::class,'render'])->name('boutique.index');
     Route::get('/panier',[PanierComponent::class,'render'])->name('produit.panier'); 
     Route::post('/payer',[PaiementController::class,'paiementCommande']);
+    
+    Route::get('/mes_commandes',[UserController::class,'index']);
 });
 
 Route::group(['middleware' => ['auth']], function ()
