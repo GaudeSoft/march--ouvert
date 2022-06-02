@@ -76,13 +76,9 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('/panier',[PanierComponent::class,'render'])->name('produit.panier'); 
     Route::post('/payer',[PaiementController::class,'paiementCommande']);
     
-    Route::get('/mes_commandes',[UserController::class,'index']);
-    Route::get('/voir_commande',[UserController::class,'voir']);
-    
-});
+    Route::get('mes_commandes',[UserController::class,'index']);
+    Route::get('view-commandes',[UserController::class,'view']);
 
-Route::group(['middleware' => ['auth']], function ()
-{
     Route::post('/panier/ajouter',[CartController::class,'store'])->name('ajout.panier');
     Route::delete('/panier/{rowId}',[CartController::class,'destroy'])->name('supprimer.panier');
     Route::get('/videpanier',function ()

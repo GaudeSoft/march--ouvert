@@ -44,12 +44,12 @@
                                                Mes commandes
                                             </a>
                                         </li>
-                                        <li>
+                                       <!-- <li>
                                             <a class="dropdown-item" href="/account">
                                             <i class="material-icons opacity-10" style="color: #139630;">favorite</i>
                                                Mes favoris
                                             </a>
-                                        </li>
+                                        </li>-->
                                         <li>
                                             <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="material-icons opacity-10" style="color: #139630;">logout</i>    

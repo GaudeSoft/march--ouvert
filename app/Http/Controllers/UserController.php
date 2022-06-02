@@ -10,12 +10,13 @@ class UserController extends Controller
 {
     public function index()
     {
-        $commandes = Paiement::where('id',Auth::id())->get();
+        $commandes = Paiement::where('user_id',Auth::id())->get();
         return view('frontend.commandes.index', compact('commandes'));
     }
-    public function voir($id)
+    public function view($id)
     {
-        $commandes = Paiement::where('id',$id)->where('user_id',Auth::id())->first();
-        return view('frontend.commandes.voir', compact('commandes'));
+        $commandes = Paiement::where('id',$id)->where('user_id', Auth::id())->first();
+        return view('frontend.commandes.view', compact('commandes'));
     }
+   
 }
