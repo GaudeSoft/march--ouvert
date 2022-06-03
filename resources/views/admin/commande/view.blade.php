@@ -78,6 +78,18 @@
                                    @endforeach
                                 </tbody>
                             </table>
+                            <div class="mt-3">
+                                <label for="">Etat de la commande</label>
+                                <form action="{{ url('update-commande/'.$commande->id) }}" method="post">
+                                    @csrf
+                                    @method('PUT')
+                                    <select class="form-select" name="commande_status">
+                                        <option {{ $commande->status == '0'? 'selected':''}}  value="0">Non livré</option>
+                                        <option {{ $commande->status == '1'? 'selected':''}} value="1">Livré</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-success mt-3">Mise à jour</button>
+                                </form>
+                            </div>
                            </div>
                        </div>
                   

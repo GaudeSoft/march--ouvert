@@ -55,7 +55,7 @@
                             <td>{{Cart::total()}}F CFA</td>
                             <td>{{$commande->status == '0' ? 'Non livré' : 'Livré'}}</td>
                             <td>
-                                <a href="{{ url('view-commandes/'.$commande->id) }}" class="btn btn-success">
+                                <a href="{{ url('voir_commandes/'.$commande->id) }}" class="btn btn-success">
                                     Details
                                 </a>
                             </td>

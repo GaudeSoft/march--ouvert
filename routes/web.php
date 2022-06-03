@@ -12,6 +12,9 @@ use App\View\Components\BoutiqueComponent;
 use App\View\Components\DetailsComponents;
 use App\View\Components\PaiementComponent;
 use App\Http\Controllers\PaiementController;
+use App\Http\Controllers\Admin\CommandeController;
+use App\Http\Controllers\Admin\DashbordController;
+use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\ProduitsController;
 use App\View\Components\user\UserProfileComponent;
 use App\Http\Controllers\Admin\CategorieController;
@@ -40,15 +43,11 @@ Route::get('/produit', function () {return view('produit');});
 Route::get('produits', [ProduitsController::class,'index']);
 
 
-
-
-
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/redirection', [App\Http\Controllers\HomeController::class, 'redirection']);
+
 Route::middleware(['auth','isAdmin'])->group(function (){
     Route::get('/dashboard', 'Admin\FrontendController@index');   
     Route::get('categories', 'Admin\CategorieController@index');
@@ -63,7 +62,13 @@ Route::middleware(['auth','isAdmin'])->group(function (){
     Route::get('modifierProduit/{id}', [ProduitsController::class,'modifier']);
     Route::put('updateProduit/{id}',[ProduitsController::class,'update']);
     Route::get('suprrimerProduit/{id}',[ProduitsController::class,'supprimer']); 
+    Route::get('commande',[CommandeController::class,'index']);
+    Route::get('admin/voir-commande',[CommandeController::class,'view']);
+    Route::put('update-commande/{id}',[CommandeController::class,'updateCommande']);
+    Route::get('users',[DashbordController::class,'users']);
+    Route::get('view-users/{id}',[DashbordController::class,'viewUsers']);
 
+    
 });
 
 Route::group(['middleware' => ['auth']], function ()
@@ -77,8 +82,8 @@ Route::group(['middleware' => ['auth']], function ()
     Route::post('/payer',[PaiementController::class,'paiementCommande']);
     
     Route::get('mes_commandes',[UserController::class,'index']);
-    Route::get('view-commandes',[UserController::class,'view']);
-
+    Route::get('voir_commandes',[UserController::class,'view']);
+  
     Route::post('/panier/ajouter',[CartController::class,'store'])->name('ajout.panier');
     Route::delete('/panier/{rowId}',[CartController::class,'destroy'])->name('supprimer.panier');
     Route::get('/videpanier',function ()

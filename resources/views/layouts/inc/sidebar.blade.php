@@ -50,19 +50,19 @@
           </a>
         </li>
         <li class="nav-item {{ Request::is('#') ? 'active':''}}">
-          <a class="nav-link text-white " href="#">
+          <a class="nav-link text-white " href="{{ url('users') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">list</i>
+              <i class="material-icons opacity-10">person</i>
             </div>
             <span class="nav-link-text ms-1">Liste des clients</span>
           </a>
         </li>
         <li class="nav-item {{ Request::is('#') ? 'active':''}}">
-          <a class="nav-link text-white " href="#">
+          <a class="nav-link text-white " href="{{ url('commande') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">list</i>
+              <i class="material-icons opacity-10">content_paste</i>
             </div>
-            <span class="nav-link-text ms-1">Liste des avis</span>
+            <span class="nav-link-text ms-1">Commandes</span>
           </a>
         </li>
         <li class="nav-item {{ Request::is('#') ? 'active':''}}">
