@@ -1,15 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
+
     <div class="card" >
         <div class="card-header">
             <h4 class="text-bold">Utilisateurs de marché ouvert</h4>
             <hr>
         </div>
-        <div class="card-body">
-           <table class="table table-hover table-bordered  container-fluid" style="text-align: center;  min-height: 10em;
-    display: table-cell;
-    vertical-align: middle ;">
+        <div class="card-body" >
+           <table class="table table-hover table-bordered  container-fluid" style="text-align: center;  min-height: 10em;display: table-cell;vertical-align: middle ;">
                <thead>
                    <tr style="text-transform: uppercase;font-weight:bold;">
                         <td>ID</td>

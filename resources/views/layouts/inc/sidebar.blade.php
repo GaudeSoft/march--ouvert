@@ -54,7 +54,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
-            <span class="nav-link-text ms-1">Liste des clients</span>
+            <span class="nav-link-text ms-1">Utilisateurs</span>
           </a>
         </li>
         <li class="nav-item {{ Request::is('#') ? 'active':''}}">
@@ -65,15 +65,6 @@
             <span class="nav-link-text ms-1">Commandes</span>
           </a>
         </li>
-        <li class="nav-item {{ Request::is('#') ? 'active':''}}">
-          <a class="nav-link text-white " href="#">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">list</i>
-            </div>
-            <span class="nav-link-text ms-1">Liste des producteurs</span>
-          </a>
-        </li>
-        
       </ul>
     </div>
   </aside>
