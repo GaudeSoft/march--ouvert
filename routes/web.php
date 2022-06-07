@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\ProduitsController;
 use App\View\Components\user\UserProfileComponent;
 use App\Http\Controllers\Admin\CategorieController;
+use App\Http\Controllers\AvisController;
 use App\View\Components\user\UserEditProfilComponent;
 use App\View\Components\user\UserProfilEditComponent;
 
@@ -47,6 +48,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/redirection', [App\Http\Controllers\HomeController::class, 'redirection']);
+Route::get('/detail/{id}',[ProduitsController::class,'detail']);
 
 Route::middleware(['auth','isAdmin'])->group(function (){
     Route::get('/dashboard', 'Admin\FrontendController@index');   
@@ -63,7 +65,7 @@ Route::middleware(['auth','isAdmin'])->group(function (){
     Route::put('updateProduit/{id}',[ProduitsController::class,'update']);
     Route::get('suprrimerProduit/{id}',[ProduitsController::class,'supprimer']); 
     Route::get('commande',[CommandeController::class,'index']);
-    Route::get('admin/voir-commande',[CommandeController::class,'view']);
+    Route::get('admin/voir-commande/{id}',[CommandeController::class,'view']);
     Route::put('update-commande/{id}',[CommandeController::class,'updateCommande']);
     Route::get('users',[DashbordController::class,'users']);
     Route::get('view-users/{id}',[DashbordController::class,'viewUsers']);
@@ -82,7 +84,7 @@ Route::group(['middleware' => ['auth']], function ()
     Route::post('/payer',[PaiementController::class,'paiementCommande']);
     
     Route::get('mes_commandes',[UserController::class,'index']);
-    Route::get('voir_commandes',[UserController::class,'view']);
+    Route::get('voir_commandes/{id}',[UserController::class,'view']);
   
     Route::post('/panier/ajouter',[CartController::class,'store'])->name('ajout.panier');
     Route::delete('/panier/{rowId}',[CartController::class,'destroy'])->name('supprimer.panier');
@@ -90,4 +92,5 @@ Route::group(['middleware' => ['auth']], function ()
     {
         Cart::destroy();
     });
+    Route::get('add-avis/{produit_id}/useravis',[AvisController::class,'add']);
 });

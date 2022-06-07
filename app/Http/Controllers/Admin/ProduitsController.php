@@ -84,4 +84,10 @@ class ProduitsController extends Controller
         return redirect('produits')->with('status','Produit supprimé avec succès');
 
     }
+    public function detail($id)
+    {
+        $data = Produits::find($id);
+        return view('detail',['produit'=>$data]);
+    }
+    
 }

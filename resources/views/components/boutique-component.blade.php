@@ -109,20 +109,22 @@
                     <div class="col-md-6">
                         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">       
                         <div class="col-auto d-none d-lg-block">
-                                    <a href="{{route('produit.detail',['id'=>$produit->id])}}" style="width:2%"title="{{$produit->nom}}">
-                                        <img src="{{asset ('assets/uploads/produit') }}/{{$produit->image}}" width="200" height="200" alt="{{$produit->nom}}">
-                                    </a>
+                                        <img src="{{asset ('assets/uploads/produit') }}/{{$produit->image}}" width="200"  class="mt-5" alt="{{$produit->nom}}">
+                                   
                                 </div>   
                         <div class="col p-4 d-flex flex-column position-static">
                                 
                                 <div class="col p-4 d-flex flex-column position-static">
-                                    <h3 class="mb-0" style="text-transform: uppercase;font-family:Arial, Helvetica, sans-serif">{{$produit->nom}}</h3>
+                                    <a href="detail/{{$produit['id']}}" title="{{$produit->nom}}" style="text-decoration:none">
+                                        <h3 class="mb-0" style="text-transform: uppercase;font-family:Bookman Old Style; color:#139630">{{$produit->nom}}</h3>
+                                    </a>
                                     <p class="card-text mb-auto" style="font-size:20px">{{$produit->description}}</p>
                                     <div class="mb-1 " style="font-weight:bold">{{$produit->prix}}F CFA</div>
                                     <form action="{{ route('ajout.panier') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="id" value="{{$produit->id}}">
-                                        <button type="submit" class="btn btn-dark mt-4" >Ajouter au panier</button>
+                                        <button type="submit" class="btn btn-success mt-4" >Ajouter au panier</button>
+                                       <!-- <button type="submit" class="btn btn-dark mt-4" >Ajouter aux favoris</button>-->
                                     </form>
                                 </div>
                             </div>

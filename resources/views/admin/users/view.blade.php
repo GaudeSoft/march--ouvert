@@ -36,6 +36,11 @@
                                 <label for="">Sexe</label>
                                     <div class="p-2 border">{{ $users->sexe }}</div>
                             </div>
+                            <div class="col-md-4 mt-3">
+                                <label for="">Date de création du compte</label>
+                                    <div class="p-2 border">{{ date('d-m-Y',  strtotime($users->created_at))}} à {{ date('h:m:s',  strtotime($users->created_at))}}</div>
+                            </div>
+                            
 
                         </div>
                     </div>

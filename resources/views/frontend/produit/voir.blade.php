@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Mes commandes</title>
+        <title>Details</title>
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/animate.css') }}">
         <link rel="stylesheet" type="text/css" href=" {{ asset('frontend/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/carousel.min.css') }}">
@@ -34,39 +34,39 @@
         <div class="row">
             <div class="col-md-12">
                <div class="card">
-                   <div class="card-header bg-success">
-                       <h4 class="text-white">Détails de la commande</h4>
+                   <div class="card-header">
+                       <h4>Détails de la commande</h4>
                    </div>
                    <div class="card-body">
                        <div class="row">
                            <div class="col-md-6">
                                 <label for="">Nom</label>
-                                <div class="border p-2">{{$commandes->lnom}}</div> 
+                                <div class="border p-2">{{$commande->lnom}}</div> 
                                 <label for="">Prénom</label>
-                                <div class="border p-2">{{$commandes->lprenom}}</div> 
+                                <div class="border p-2">{{$commande->lprenom}}</div> 
                                 <label for="">Email</label>
-                                <div class="border p-2">{{$commandes->lemail}}</div> 
+                                <div class="border p-2">{{$commande->lemail}}</div> 
                                 <label for="">Téléphone</label>
-                                <div class="border p-2">{{$commandes->lphone}}</div> 
+                                <div class="border p-2">{{$commande->lphone}}</div> 
                                 <label for="">Adresse de livraison</label>
                                 <div class="border p-2">
-                                    <b>Adresse:</b> {{$commandes->ladresse}}  
-                                    <b>Ville:</b> {{$commandes->ville}} 
-                                    <b>Quatier:</b> {{$commandes->quatier}}
+                                    Adresse: {{$commande->ladresse}} <br>
+                                    Ville: {{$commande->ville}}<br>
+                                    Quatier: {{$commande->quatier}}
                                 </div> 
                            </div>
                            <div class="col-md-6">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Nom</th>
-                                        <th>Quantité</th>
-                                        <th>Prix</th>
-                                        <th>Image</th>
+                                        <th>Numéro de suivi</th>
+                                        <th>Montant total</th>
+                                        <th>Etat</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        
+                                   
                                 </tbody>
                             </table>
                            </div>

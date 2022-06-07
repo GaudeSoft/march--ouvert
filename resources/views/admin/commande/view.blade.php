@@ -39,20 +39,20 @@
                    </div>
                    <div class="card-body">
                        <div class="row">
-                           <div class="col-md-6">
+                            <div class="col-md-6">
                                 <label for="">Nom</label>
-                                <div class="border p-2">{{$commande->lnom}}</div> 
+                                <div class="border p-2">{{$commandes->lnom}}</div> 
                                 <label for="">Prénom</label>
-                                <div class="border p-2">{{$commande->lprenom}}</div> 
+                                <div class="border p-2">{{$commandes->lprenom}}</div> 
                                 <label for="">Email</label>
-                                <div class="border p-2">{{$commande->lemail}}</div> 
+                                <div class="border p-2">{{$commandes->lemail}}</div> 
                                 <label for="">Téléphone</label>
-                                <div class="border p-2">{{$commande->lphone}}</div> 
+                                <div class="border p-2">{{$commandes->lphone}}</div> 
                                 <label for="">Adresse de livraison</label>
                                 <div class="border p-2">
-                                    Adresse: {{$commande->ladresse}} <br>
-                                    Ville: {{$commande->ville}}<br>
-                                    Quatier: {{$commande->quatier}}
+                                    Adresse: {{$commandes->ladresse}} <br>
+                                    Ville: {{$commandes->ville}}<br>
+                                    Quatier: {{$commandes->quatier}}
                                 </div> 
                            </div>
                            <div class="col-md-6">
@@ -66,16 +66,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   @foreach($commande->commandeitem as item)
-                                        <tr>
-                                            <td>{{ $item->products->nom }}</td>
-                                            <td>{{ $item->qte }}</td>
-                                            <td>{{ $item->prix }}</td>
-                                            <td>
-                                                <img src="{{ asset('assets/uploads/produit/'.$item->products->image) }}" width="50px" alt="Photo de votre produit" >
-                                            </td>
-                                        </tr>
-                                   @endforeach
+                                   
                                 </tbody>
                             </table>
                             <div class="mt-3">
@@ -87,7 +78,7 @@
                                         <option {{ $commande->status == '0'? 'selected':''}}  value="0">Non livré</option>
                                         <option {{ $commande->status == '1'? 'selected':''}} value="1">Livré</option>
                                     </select>
-                                    <button type="submit" class="btn btn-success mt-3">Mise à jour</button>
+                                    <button type="submit" class="btn btn-success">Mise à jour</button>
                                 </form>
                             </div>
                            </div>

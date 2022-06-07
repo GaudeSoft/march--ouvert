@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Paiement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommandeController extends Controller
 {
@@ -15,6 +16,7 @@ class CommandeController extends Controller
     }
     public function view($id)
     {
+        $commandes = Paiement::where('id',$id)->where('user_id', Auth::id())->first();
         return view('admin.commande.view', compact('commandes'));
     }
     public function updateCommande(Request $request, $id)

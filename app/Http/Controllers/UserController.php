@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paiement;
+use App\Models\Produits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,5 +19,6 @@ class UserController extends Controller
         $commandes = Paiement::where('id',$id)->where('user_id', Auth::id())->first();
         return view('frontend.commandes.view', compact('commandes'));
     }
+   
    
 }
