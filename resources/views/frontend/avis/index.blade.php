@@ -3,7 +3,7 @@
 @section('title', 'Laissez un avis')
 
 @section('content')
-<div class="container">
+<div class="container py-5">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -12,12 +12,13 @@
                 </div>
 
                 <div class="card-body">
-                    @if($verifier_commande->count() > 0)
+                    @if($verifier_commande->count() >= 0)
                         <h5>Laissez votre avis sur {{$produit->nom }}</h5>
-                        <form action="" method="post">
+                        <form action="{{ url('/add-avis')}}" method="post">
+                            @csrf
                             <input type="hidden" name="prod_id" value="{{$produit->id }}">
-                            <textarea name="user_avis" id=""  rows="5" placeholder="Votre avis"></textarea>
-                            <button type="submit" class="btn btn-success">Publier</button>
+                            <textarea class="form-control"name="user_avis" id=""  rows="5" placeholder="Votre avis"></textarea>
+                            <button type="submit" class="btn btn-success mt-3">Publier</button>
                         </form>
         
                     @else

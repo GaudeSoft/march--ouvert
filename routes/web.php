@@ -93,4 +93,6 @@ Route::group(['middleware' => ['auth']], function ()
         Cart::destroy();
     });
     Route::get('add-avis/{produit_id}/useravis',[AvisController::class,'add']);
+    Route::post('add-avis',[AvisController::class,'create']);
+    
 });

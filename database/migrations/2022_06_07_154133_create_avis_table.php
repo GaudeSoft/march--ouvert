@@ -17,7 +17,7 @@ class CreateAvisTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('prod_id');
-            $table->string('user_avis');
+            $table->mediumText('user_avis');
             $table->timestamps();
         });
     }

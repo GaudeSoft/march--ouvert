@@ -38,13 +38,13 @@
                 <div class="detail-media">
                     <div class="product-gallery">
                       <ul>
-
                         <li style="list-style:none">
                             <img src="{{asset ('assets/uploads/produit') }}/{{$produit->image}}" width="90%" alt=""  style="margin-top: 15%;"/>
                         </li>
                       </ul>
                     </div>
                 </div>
+
                 <div class="detail-info">
                     
                     <h2 class="product-name mt-5">{{$produit->nom }} </h2>
@@ -74,10 +74,10 @@
                         </form>
                         <a href="{{ url('add-avis/'.$produit->id.'/useravis')}}" class="btn btn-secondary ">Laissez un avis</a>
                     </div>
+                    
                 </div>
              
-        </div><!--end main products area-->
-
+        </div>
      
 
 </div><!--end container-->
