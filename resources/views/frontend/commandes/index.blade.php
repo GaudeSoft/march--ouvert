@@ -45,7 +45,8 @@
                             <th>Date de commande</th>
                             <th>Montant total</th>
                             <th>Etat</th>
-                            <th>Action</th>
+                            <th colspan="2">Action</th>
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -58,6 +59,13 @@
                                 <a href="{{ url('voir_commandes/'.$commande->id) }}" class="btn btn-success">
                                     Details
                                 </a>
+                            </td>
+                            <td>
+                                <form action="" method="post">
+                                    @csrf
+                                    <input class="form-check-input" type="radio" name="commande_statut"  value="1">
+                                    <label class="form-check-label text-success text-bold">Commande reçu</label>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

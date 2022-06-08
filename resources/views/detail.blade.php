@@ -81,7 +81,7 @@
                     <label for="">{{Auth::id()}}</label>
                     <small>Posté </small>
                     <p>
-                        {{}}
+                       
                     </p>
                 </div>
         </div>
