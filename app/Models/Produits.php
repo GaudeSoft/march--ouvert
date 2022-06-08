@@ -24,6 +24,7 @@ class Produits extends Model
         'poids',
         'qte',
         'image',
+        'status',
     ];
 
 }

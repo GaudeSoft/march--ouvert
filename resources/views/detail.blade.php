@@ -60,6 +60,10 @@
                             <a class="btn btn-reduce" href="#"></a>
                             <a class="btn btn-increase" href="#"></a>
                         </div>
+                        
+                    </div>
+                    <div class="text-muted mt-3">
+                    Produit pulié le {{ date('d-m-Y',  strtotime($produit->created_at))}} à  {{ date('h:m:s',  strtotime($produit->created_at))}}
                     </div>
                     <div class="wrap-butons">
                         <form action="{{ route('ajout.panier') }}" method="post">

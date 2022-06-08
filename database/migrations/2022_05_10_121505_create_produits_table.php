@@ -22,6 +22,7 @@ class CreateProduitsTable extends Migration
             $table->string('poids');
             $table->string('qte');
             $table->string('image');
+            $table->string('status');
             $table->timestamps();
         });
     }

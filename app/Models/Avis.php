@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Avis extends Model
 {
     use HasFactory;
+
+    protected $table = 'avis';
+    protected $fillable = [
+        'user_id',
+        'prod_id',
+        'user_avis',
+    ];
 }
