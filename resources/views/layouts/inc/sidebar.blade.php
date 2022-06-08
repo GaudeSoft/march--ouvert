@@ -62,7 +62,15 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">content_paste</i>
             </div>
-            <span class="nav-link-text ms-1">Commandes</span>
+            <span class="nav-link-text ms-1">Commandes non livrées</span>
+          </a>
+        </li>
+        <li class="nav-item {{ Request::is('#') ? 'active':''}}">
+          <a class="nav-link text-white " href="{{ url('commandeLivre') }}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">content_paste</i>
+            </div>
+            <span class="nav-link-text ms-1">Commandes livrées</span>
           </a>
         </li>
       </ul>

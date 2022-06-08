@@ -65,6 +65,7 @@ Route::middleware(['auth','isAdmin'])->group(function (){
     Route::put('updateProduit/{id}',[ProduitsController::class,'update']);
     Route::get('suprrimerProduit/{id}',[ProduitsController::class,'supprimer']); 
     Route::get('commande',[CommandeController::class,'index']);
+    Route::get('commandeLivre',[CommandeController::class,'livre']);
     Route::get('admin/voir-commande/{id}',[CommandeController::class,'view']);
     Route::put('update-commande/{id}',[CommandeController::class,'updateCommande']);
     Route::get('users',[DashbordController::class,'users']);

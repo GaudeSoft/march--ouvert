@@ -14,6 +14,12 @@ class CommandeController extends Controller
         $commandes = Paiement::where('status','0')->get();
         return view('admin.commande.index', compact('commandes'));
     }
+    public function livre()
+    {
+        $commandes = Paiement::where('status','1')->get();
+        return view('admin.commande.livre', compact('commandes'));
+    }
+    
     public function view($id)
     {
         $commandes = Paiement::where('id',$id)->where('user_id', Auth::id())->first();

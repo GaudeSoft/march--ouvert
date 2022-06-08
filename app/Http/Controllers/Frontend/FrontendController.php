@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Produits;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Avis;
 
 class FrontendController extends Controller
 {
@@ -13,7 +14,8 @@ class FrontendController extends Controller
         if(Produits::where('id','prod_id')->exists())
         {
             $produits = Produits::where('id',$prod_id)->first();
-            return view('frontend.produit.voir', compact('produits'));
+            $avis = Avis::where('prod_id',$produits->id)->get();
+            return view('frontend.produit.voir', compact('produits','avis'));
         }
         else
         {
