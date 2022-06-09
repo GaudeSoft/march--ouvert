@@ -16,11 +16,11 @@
                    <table class="table table-bordered text-center">
                     <thead>
                         <tr>
-                            <th>Numéro de commande</th>
-                            <th>Date de commande</th>
-                            <th>Montant total</th>
-                            <th>Etat</th>
-                            <th>Action</th>
+                            <th style="text-transform: uppercase;">Numéro de commande</th>
+                            <th style="text-transform: uppercase;">Date de la commande</th>
+                            <th style="text-transform: uppercase;">Montant total</th>
+                            <th style="text-transform: uppercase;">Etat</th>
+                            <th style="text-transform: uppercase;" colspan="2">Action</th>
                         </tr>
                     </thead>
                     <tbody>

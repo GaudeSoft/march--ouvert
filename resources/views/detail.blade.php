@@ -63,7 +63,7 @@
                         
                     </div>
                     <div class="text-muted mt-3">
-                    Produit pulié le {{ date('d-m-Y',  strtotime($produit->created_at))}} à  {{ date('h:m:s',  strtotime($produit->created_at))}}
+                        Publié le {{ date('d-m-Y',  strtotime($produit->created_at))}} 
                     </div>
                     <div class="wrap-butons">
                         <form action="{{ route('ajout.panier') }}" method="post">
@@ -78,8 +78,8 @@
                 </div>
                 <div class="col-md-8">
                     <h1 class="text-success text-bold fs-1" >Les avis des clients</h1>
-                    <label for="">{{Auth::id()}}</label>
-                    <small>Posté </small>
+                   
+                    
                     <p>
                        
                     </p>

@@ -3,22 +3,24 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\DetailsComponent;
+use App\Http\Controllers\AvisController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\View\Components\PanierComponent;
+use App\Http\Controllers\LoginProducteur;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\View\Components\BoutiqueComponent;
 use App\View\Components\DetailsComponents;
 use App\View\Components\PaiementComponent;
 use App\Http\Controllers\PaiementController;
+use App\Http\Controllers\ProducteurController;
 use App\Http\Controllers\Admin\CommandeController;
 use App\Http\Controllers\Admin\DashbordController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\ProduitsController;
 use App\View\Components\user\UserProfileComponent;
 use App\Http\Controllers\Admin\CategorieController;
-use App\Http\Controllers\AvisController;
 use App\View\Components\user\UserEditProfilComponent;
 use App\View\Components\user\UserProfilEditComponent;
 
@@ -43,7 +45,10 @@ Route::get('/produit', function () {return view('produit');});
 //Route::get('/panier', function () {return view('panier');});
 Route::get('produits', [ProduitsController::class,'index']);
 
-
+Route::get('/inscription-producteur', [App\Http\Controllers\ProducteurController::class, 'createProducteurForm']);
+Route::post('/inscription-producteur', [App\Http\Controllers\ProducteurController::class, 'validator']);
+Route :: get ('/connexion-producteur', [App\Http\Controllers\LoginProducteur::class,'getValidate']);
+Route :: post ('/connexion-producteur', [App\Http\Controllers\LoginProducteur::class,'postValidate']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

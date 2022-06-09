@@ -41,18 +41,18 @@
                    <div class="card-body">
                    <table class="table table-bordered text-center">
                     <thead>
-                        <tr >
-                            <th>Date de commande</th>
-                            <th>Montant total</th>
-                            <th>Etat</th>
-                            <th colspan="2">Action</th>
+                        <tr>
+                            <th style="text-transform: uppercase;">Date de la commande</th>
+                            <th style="text-transform: uppercase;">Montant total</th>
+                            <th style="text-transform: uppercase;">Etat</th>
+                            <th style="text-transform: uppercase;" colspan="2">Action</th>
                            
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($commandes as $commande)
                         <tr>
-                            <td>{{ date('d-m-Y',  strtotime($commande->created_at))}} à {{ date('h:m:s',  strtotime($commande->created_at))}}</td>
+                            <td>{{ date('d-m-Y',  strtotime($commande->created_at))}}</td>
                             <td>{{Cart::total()}}F CFA</td>
                             <td>{{$commande->status == '0' ? 'Non livré' : 'Livré'}}</td>
                             <td>

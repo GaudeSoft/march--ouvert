@@ -2,7 +2,20 @@
 
 <div class="container-fluid card-group" style="width: 70rem;">
     <div class="card" style="border: 3px solid #139630; margin-right:5%; ">
-        <img src="assets/images/fruit.png" width="5%" class="card-img-top" alt="...">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="assets/images/ana2.png" width="5%" class="card-img-top mt-2" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="assets/images/av2.png" width="5%" class="card-img-top mt-2" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="assets/images/banaane2.png" width="5%" class="card-img-top mt-2" alt="...">
+                    </div>
+                </div>
+            </div>
+       
         <div class="card-body">
             <h5 class="card-title">Fruits</h5>
             <p class="card-text">Some dummy text to make up the card's content. You can replace it anytime.</p>
@@ -12,8 +25,20 @@
         </div>
     </div>
     <div class="card"  style="border: 3px solid #139630; margin-right:5%; ">
-        <img src="assets/images/manioc.png" width="5%" class="card-img-top"style="margin-top:28%; margin-left:15%;border-radius:50px; " alt="...">
-        <div class="card-body">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="assets/images/pa2.png" width="5%" class="card-img-top mt-2" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="assets/images/taro.png" width="5%" class="card-img-top mt-2" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="assets/images/pom2.png" width="5%" class="card-img-top mt-2" alt="...">
+                    </div>
+                </div>
+            </div>
+    <div class="card-body">
             <h5 class="card-title">Tubercules</h5>
             <p class="card-text">Some dummy text to make up the card's content. You can replace it anytime.</p>
         </div>
@@ -22,8 +47,19 @@
         </div>
     </div>
     <div class="card"  style="border: 3px solid #139630; margin-right:5%; ">
-        <img src="assets/images/riz.png" width="2%" class="card-img-top" alt="...">
-        <div class="card-body">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="assets/images/maïs.png" width="5%" class="card-img-top mt-2" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="assets/images/rrrr2.png" width="5%" class="card-img-top mt-2" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="assets/images/mil2.png" width="5%" class="card-img-top mt-2" alt="...">
+                    </div>
+                </div>
+            </div>        <div class="card-body">
             <h5 class="card-title">Céréales</h5>
             <p class="card-text">Some dummy text to make up the card's content. You can replace it anytime.</p>
         </div>
