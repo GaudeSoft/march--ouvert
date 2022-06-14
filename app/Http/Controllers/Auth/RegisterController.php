@@ -47,7 +47,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function ProducteurForm(array $data)
+    protected function validator(array $data)
     {
         return Validator::make($data, [
             
@@ -69,6 +69,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if ($data['typeCompte'] = "Produteur" ){
+            redirect('/inscriptionDist');
+        }
         return User::create([
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -79,5 +82,6 @@ class RegisterController extends Controller
             'sexe' => $data['sexe'],
             'typeCompte' => $data['typeCompte'],
         ]);
+        
     }
 }

@@ -3,12 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producteur;
-use Illuminate\Support\Facades\Validator;
-
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class ProducteurController extends Controller
 {
+    use RegistersUsers;
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
     //Create Form
     public function createProducteurForm(Request $request)
     {
@@ -21,43 +34,34 @@ class ProducteurController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function store()
     {
-        return Validator::make($data, [
+        
+        request()->validate([
             
             'nom' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
             'adresse' => ['required'],
             'codePostal' => ['required'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:producteurs'],
             'telephone' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'activite' => ['required'],
             'produit' => ['required'],
             'sexe' => ['required', 'string', 'max:255'],
         ]);
+       $producteur = new Producteur();
+       $producteur->nom = request('nom');
+       $producteur->prenom = request('prenom');
+       $producteur->adresse = request('adresse');
+       $producteur->codePostal = request('codePostal');
+       $producteur->telephone = request('telephone');
+       $producteur->password =Hash::make( request('password'));
+       $producteur->activite = request('activite');
+       $producteur->produit = request('produit');
+       $producteur->sexe = request('sexe');
+       $producteur->save();
+       return Redirect::to('register')->with('message','INSCRIPTION EFFECTUE AVEC SUCCES');
     }
-     /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\Producteur
-     */
-    protected function create(array $data)
-    {
-        return Producteur::create([
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            //'password' => Hash::make($data['password']),
-            'nom' => $data['nom'],
-            'prenom' => $data['prenom'],
-            'telephone' => $data['telephone'],
-            'sexe' => $data['sexe'],
-            'activite' => $data['activite'],
-            'produit' => $data['produit'],
-            'codePostal' => $data['codePostal'],
-            'adresse' => $data['adresse'],
-        ]);
-    }
-   
+    
 }

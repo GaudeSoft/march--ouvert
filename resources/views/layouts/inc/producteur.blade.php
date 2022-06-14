@@ -7,7 +7,7 @@
             <div class="card-body">
                 <!--<h5 class="card-title">RECRUTEMENT</h5>-->
                 <p class="card-text" style=" color:black; font-size:20px " >Tu es un producteur ou distributeur de produits agro-alimentaires, viens au marché ouvert</p>
-                <a href="/inscription-producteur ">
+                <a href="/inscription ">
                     <button style="border-radius:35px; color:white; width: 20%; height:40px; background:#139630">
                         Voir...
                     </button>

@@ -45,4 +45,9 @@ class AvisController extends Controller
             return redirect()->back()->with('status','Lien invalide');
         }
     }
+    public function voir()
+    {
+        $avis = Avis::all();
+        return $avis;
+    }
 }

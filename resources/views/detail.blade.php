@@ -78,10 +78,8 @@
                 </div>
                 <div class="col-md-8">
                     <h1 class="text-success text-bold fs-1" >Les avis des clients</h1>
-                   
-                    
                     <p>
-                       
+                        
                     </p>
                 </div>
         </div>

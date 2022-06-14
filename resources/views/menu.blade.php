@@ -11,9 +11,12 @@
                    
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto"  style="color: #139630;">
                         <!-- Authentication Links -->
                         @guest
+                        <li class="nav-item"  >
+                                  <a class="nav-link " aria-current="page" href="/boutique" style="color: #139630;">Boutique</a>
+                                </li>
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
@@ -38,6 +41,13 @@
                                         {{ Auth::user()->prenom}}
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <a class="dropdown-item" href="/tableau_de_bord">
+                                            <i class="material-icons opacity-10" style="color: #139630;">person</i>
+                                               Tableau de bord
+                                            </a>
+                                        </li>
+
                                         <li>
                                             <a class="dropdown-item" href="/mes_commandes">
                                             <i class="material-icons opacity-10" style="color: #139630;">shop</i>

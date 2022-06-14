@@ -28,16 +28,9 @@
     <title>Inscription</title>
 </head>
 <body>
-    @include('menu')
-    <div class="container mt-2" style="width: auto;">
-        @if(Session::has('message'))
-            <h4 class="bg-success">
-                {{Session::get('message')}}
-            </h4>
-        @endif
-        <form  method="POST" action="/inscription">
-            @csrf
-            <div class="row">
+    <form action="/inscriptionDist" method="post">
+        {{ csrf_field() }}
+        <div class="row">
                 <div class="col-md-6">
                     <label for="" class="col-md-4 col-form-label " style="color:black;">Nom</label>
                     <input type="text" name="nom" id="nom" class="form-control {{ $errors->has('nom') ? 'error' : ''}}" require>
@@ -138,15 +131,8 @@
 
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <button  class="btn btn-success mt-3">
-                        S'inscrire
-                    </button>
-                </div>
-            </div>
-            
-        </form>
-    </div>
+        <input type="submit" value="Inscrit">
+
+    </form>
 </body>
 </html>

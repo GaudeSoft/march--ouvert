@@ -80,9 +80,9 @@
                             <div class="col-md-12">
                                 <select  id="typeCompte" class="form-control @error('typeCompte') is-invalid  @enderror" name="typeCompte" value="{{ old('typeCompte') }}" required autocomplete="typeCompte" >
                                     <option value="">Choisir une option</option>
-                                    <option value="dog">Producteur</option>
-                                    <option value="cat">Distributeur</option>
-                                    <option value="hamster">Client</option>
+                                    <option value="Producteur">Producteur</option>
+                                    <option value="Distributeur">Distributeur</option>
+                                    <option value="Client">Client</option>
                                 </select>
 
                                 @error('typeCompte')

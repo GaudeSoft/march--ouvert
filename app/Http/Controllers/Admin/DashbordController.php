@@ -10,7 +10,7 @@ class DashbordController extends Controller
 {
     public function users()
     {
-        $users = User::all();
+        $users = User::where('role_as','0')->get();
         return view ('admin.users.index', compact('users'));
     }
     public function viewUsers($id)

@@ -4,7 +4,7 @@
 
     <div class="card" >
             <div class="card-header" style="background-color: #139630;">
-                <h4 class="text-white">Utilisateurs </h4>
+                <h4 class="text-white">Liste des clients</h4>
             </div>
             <div class="card-body" >
            <table class="table table-hover table-bordered  container-fluid" style="text-align: center;  min-height: 10em;display: table-cell;vertical-align: middle ;">

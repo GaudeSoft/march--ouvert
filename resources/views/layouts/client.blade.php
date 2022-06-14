@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Admin - Marché ouvert</title>
+    <title>Tableau de bord</title>
 
    
     <!-- Styles -->
@@ -22,7 +22,7 @@
 
 </head>
 <body class="g-sidenav-show  ">
-        @include('layouts.inc.sidebar')
+        @include('layouts.incClient.sidebar')
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
           

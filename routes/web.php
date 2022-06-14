@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Producteur;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\DetailsComponent;
@@ -14,7 +15,9 @@ use App\View\Components\BoutiqueComponent;
 use App\View\Components\DetailsComponents;
 use App\View\Components\PaiementComponent;
 use App\Http\Controllers\PaiementController;
+use App\Http\Controllers\ControllerProducteur;
 use App\Http\Controllers\ProducteurController;
+use App\Http\Controllers\Client\FrontController;
 use App\Http\Controllers\Admin\CommandeController;
 use App\Http\Controllers\Admin\DashbordController;
 use App\Http\Controllers\Admin\FrontendController;
@@ -37,18 +40,41 @@ use App\View\Components\user\UserProfilEditComponent;
 
 Route::get('/', function () {return view('welcome');});
 
+
 Route::get('/dashboard', function () {return view('dashboard');});
 //Route::get('/boutique', function () {return view('boutique');});
+Route::get('/boutique',[BoutiqueComponent::class,'render'])->name('boutique.index');
 
 Route::get('/produit', function () {return view('produit');});
 
 //Route::get('/panier', function () {return view('panier');});
 Route::get('produits', [ProduitsController::class,'index']);
 
-Route::get('/inscription-producteur', [App\Http\Controllers\ProducteurController::class, 'createProducteurForm']);
-Route::post('/inscription-producteur', [App\Http\Controllers\ProducteurController::class, 'validator']);
-Route :: get ('/connexion-producteur', [App\Http\Controllers\LoginProducteur::class,'getValidate']);
-Route :: post ('/connexion-producteur', [App\Http\Controllers\LoginProducteur::class,'postValidate']);
+//Les routes du producteur 
+Route::get('/inscription', function () {return view('producteur.register');});
+Route::post('/inscription', function () {
+    return "Formulaire reçu";
+});
+
+//Les routes du distributeurs 
+Route::get('/inscriptionDist', function () {return view('dist.register');});
+Route::post('/inscriptionDist', function () {
+    $producteur = new Producteur;
+    $producteur->nom = request('nom');
+    $producteur->prenom = request('prenom');
+    $producteur->adresse = request('adresse');
+    $producteur->codePostal = request('codePostal');
+    $producteur->telephone = request('telephone');
+    $producteur->activite = request('activite');
+    $producteur->produit = request('produit');
+    $producteur->sexe = request('sexe');
+    $producteur->email = request('email');
+    $producteur->password = request('password');
+    $producteur->save();
+  
+    return "Formulaire reçu";
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -81,11 +107,12 @@ Route::middleware(['auth','isAdmin'])->group(function (){
 
 Route::group(['middleware' => ['auth']], function ()
 {
+    Route::get('/tableau_de_bord', [FrontController::class,'index']); 
+    Route::get('mon_panier', 'Admin\CategorieController@index');
     Route::get('/paiement',[PaiementController::class,'index'])->name('paiement.index');  
     Route::get('/user/profile',[UserProfileComponent::class,'render']) ->name('user.profile');
     Route::get('/user/profile/edit',[UserEditProfilComponent::class,'render']) ->name('user.editprofile');
     Route::get('/produit/{id}',[ProduitsController::class,'show']) ->name('produit.detail');
-    Route::get('/boutique',[BoutiqueComponent::class,'render'])->name('boutique.index');
     Route::get('/panier',[PanierComponent::class,'render'])->name('produit.panier'); 
     Route::post('/payer',[PaiementController::class,'paiementCommande']);
     
