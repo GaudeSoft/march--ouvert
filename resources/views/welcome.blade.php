@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/chosen.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/style.css') }} ">
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/color-01.css') }} ">
+        <link href="{{ asset('frontend/css/style2.css') }}" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/color-01.css') }} ">
        

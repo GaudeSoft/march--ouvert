@@ -1,7 +1,7 @@
-<div class="container" style="margin-top:2%;">
+<div class="container" style="margin-top:5%;">
     <!--Row with two equal columns-->
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-top:14%;">
             <h1 style="color: #139630;">Vos Produits Locaux</h1>
             <!--<p style="color: #020202;font-family:Nunito;font-size:20px;">c'est avec nous</p>-->
             <p style="color: #020202;font-family:arial;font-size:25px;">encouragez nos producteurs locaux, c’est consommé local</p>
@@ -11,7 +11,7 @@
                 </button>
             </a>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-top:5%;">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">

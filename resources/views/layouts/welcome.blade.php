@@ -17,6 +17,7 @@
         <!-- Styles -->
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/style2.css') }}" rel="stylesheet">
     </head>
     <body class="antialiased">    
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
